@@ -23,6 +23,7 @@ public class App
         Student stud=new Student();
         int n;
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enetr n");
         n = sc.nextInt();
         if(n == 1){
         	  stud.setName("Sush");
