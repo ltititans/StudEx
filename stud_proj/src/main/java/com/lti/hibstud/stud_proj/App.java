@@ -22,7 +22,7 @@ public class App
       
         stud.setName("Sush");
         stud.setCname("Java");
-        stud.setId(1);
+        stud.setId(11);
         session.beginTransaction();
         session.update(stud);
         session.getTransaction().commit();
