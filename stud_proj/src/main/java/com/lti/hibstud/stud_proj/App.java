@@ -26,7 +26,7 @@ public class App
         System.out.println("Enetr n");
         n = sc.nextInt();
         if(n == 1){
-        	  stud.setName("Sush");
+        	  stud.setName("Push");
               stud.setCname("Java");
               session.beginTransaction();
               session.save(stud);
