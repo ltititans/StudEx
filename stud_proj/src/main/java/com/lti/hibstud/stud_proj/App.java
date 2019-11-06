@@ -14,43 +14,51 @@ import org.hibernate.cfg.Configuration;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-    	Configuration conf = new Configuration().configure();
-        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(conf.getProperties());
-        SessionFactory factory = conf.buildSessionFactory(builder.build());
-        Session session = factory.openSession();
-        Student stud=new Student();
-        int n;
-        String name,cname;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enetr n");
-        n = sc.nextInt();
-        if(n == 1){
-        	  System.out.println("Enter name");
-        	  name = sc.nextLine();
-        	  stud.setName(name);
-        	  System.out.println("Enter cname");
-        	  cname = sc.nextLine();
-              stud.setCname(cname);
-              session.beginTransaction();
-              session.save(stud);
-        }
-        else if(n == 2){
-        	stud.setId(71);
-        	System.out.println("Enter name");
-      	  name = sc.nextLine();
-      	  stud.setName(name);
-      	  System.out.println("Enter cname");
-      	  cname = sc.nextLine();
-            stud.setCname(cname);
-              
-              session.beginTransaction();
-              session.update(stud);
-        }
-        
-      
-      
-        session.getTransaction().commit();
-    }
+	public static void main( String[] args )
+	{
+		Configuration conf = new Configuration().configure();
+		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(conf.getProperties());
+		SessionFactory factory = conf.buildSessionFactory(builder.build());
+		Session session = factory.openSession();
+		Student stud=new Student();
+		int n,id;
+		String name,cname;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enetr n");
+		n = sc.nextInt();
+		if(n == 1){
+			System.out.println("Enter name");
+			name = sc.next();
+			stud.setName(name);
+			System.out.println("Enter cname");
+			cname = sc.next();
+			stud.setCname(cname);
+			session.beginTransaction();
+			session.save(stud);
+		}
+		else if(n == 2){
+			System.out.println("Enter id");
+			id = sc.nextInt();
+			stud.setId(id);
+			System.out.println("Enter name");
+			name = sc.next();
+			stud.setName(name);
+			System.out.println("Enter cname");
+			cname = sc.next();
+			stud.setCname(cname);
+
+			session.beginTransaction();
+			session.update(stud);
+		}
+		else if(n == 3){
+			System.out.println("Enter id");
+			id = sc.nextInt();
+			stud.setId(id);
+			session.delete(stud);
+		}
+
+
+
+		session.getTransaction().commit();
+	}
 }
