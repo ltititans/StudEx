@@ -1,5 +1,7 @@
 package com.lti.hibstud.stud_proj;
 
+import java.util.Scanner;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -19,12 +21,25 @@ public class App
         SessionFactory factory = conf.buildSessionFactory(builder.build());
         Session session = factory.openSession();
         Student stud=new Student();
+        int n;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        if(n == 1){
+        	  stud.setName("Sush");
+              stud.setCname("Java");
+              session.beginTransaction();
+              session.save(stud);
+        }
+        else if(n == 2){
+        	  stud.setName("Ak");
+              stud.setCname("Java");
+              stud.setId(11);
+              session.beginTransaction();
+              session.update(stud);
+        }
+        
       
-        stud.setName("Sush");
-        stud.setCname("Java");
-        stud.setId(11);
-        session.beginTransaction();
-        session.update(stud);
+      
         session.getTransaction().commit();
     }
 }
