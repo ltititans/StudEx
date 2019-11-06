@@ -22,19 +22,29 @@ public class App
         Session session = factory.openSession();
         Student stud=new Student();
         int n;
+        String name,cname;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enetr n");
         n = sc.nextInt();
         if(n == 1){
-        	  stud.setName("Push");
-              stud.setCname("Java");
+        	  System.out.println("Enter name");
+        	  name = sc.nextLine();
+        	  stud.setName(name);
+        	  System.out.println("Enter cname");
+        	  cname = sc.nextLine();
+              stud.setCname(cname);
               session.beginTransaction();
               session.save(stud);
         }
         else if(n == 2){
-        	  stud.setName("Ak");
-              stud.setCname("Java");
-              stud.setId(71);
+        	stud.setId(71);
+        	System.out.println("Enter name");
+      	  name = sc.nextLine();
+      	  stud.setName(name);
+      	  System.out.println("Enter cname");
+      	  cname = sc.nextLine();
+            stud.setCname(cname);
+              
               session.beginTransaction();
               session.update(stud);
         }
