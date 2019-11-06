@@ -34,7 +34,7 @@ public class App
         else if(n == 2){
         	  stud.setName("Ak");
               stud.setCname("Java");
-              stud.setId(11);
+              stud.setId(71);
               session.beginTransaction();
               session.update(stud);
         }
