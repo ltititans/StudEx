@@ -54,6 +54,7 @@ public class App
 			System.out.println("Enter id");
 			id = sc.nextInt();
 			stud.setId(id);
+			session.beginTransaction();
 			session.delete(stud);
 		}
 
